@@ -50,7 +50,9 @@ void print()
 }
 
 
-//starts from the second last rom of the triangle
+//starts from the second last row of the triangle
+//adds up the bigger number from it's child and replaces number with sum
+//continues up the triangle
 int maxPath ()
 {
 	//second last row of triangle
@@ -59,12 +61,13 @@ int maxPath ()
 		//Starts at very left number
 		for (int j=0; j<=i; j++)
 		{
-			//adds the bigger number number from the bottom two
+			//adds the bigger number from the bottom two numbers
+			//and replaces it with sum
 			int sum;
 			if (triangle[i+1][j]>= triangle[i+1][j+1])
-				{sum = triangle[i][j] + triangle[i+1][j];}
+				sum = triangle[i][j] + triangle[i+1][j];
 			else
-				{sum = triangle[i][j] + triangle[i+1][j+1];}
+				sum = triangle[i][j] + triangle[i+1][j+1];
 			triangle[i][j] = sum;
 		}
 	}
